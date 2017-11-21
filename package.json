@@ -1,0 +1,19 @@
+{
+  "name": "webchat",
+  "version": "1.0.0",
+  "description": "for chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/limyCxm/webchat.git"
+  },
+  "author": "chengxm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limyCxm/webchat/issues"
+  },
+  "homepage": "https://github.com/limyCxm/webchat#readme"
+}

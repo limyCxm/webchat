@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/mian.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="baseContent">
+        <div>
+            <div class="head">
+                <p>hello chat</p>
+                <p id="title"></p>
+            </div>
+            <div class="chat" id="chats"></div>
+            <div class="btnGroup"></div>
+            <div class="sendchat">
+                <div class="chatContent">
+                    <textarea name="sendFile" id="messageInput"></textarea>
+                </div>
+                <div class="send">
+                    <button id="sendBtn">SEND</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div >
+       <div id="shade">
+            <p id="info">server is connect ...</p>
+           <div id="wrapper">
+                <input type="text" id="nickname" placeholder="input your nickname">
+                <button id="loginBtn">login</button>
+           </div>
+       </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
