@@ -6,7 +6,7 @@ var http = require('http'),
     var users = [];
 
 app.use('/', express.static(__dirname + '/www')); //指定静态HTML文件的位置
-server.listen(80);
+server.listen(8222);
 
 //socket部分
 io.on('connection', function(socket){
@@ -28,4 +28,8 @@ io.on('connection', function(socket){
         users.splice(socket.userIndex,1);
         io.sockets.emit('system', socket.nickname, users.length, 'logout')
     })
+
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+      });
 })

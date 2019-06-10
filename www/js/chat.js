@@ -1,8 +1,11 @@
-// var socket=io.connect(),//与服务器进行连接
-// button=document.getElementById('sendBtn');
-// button.onclick=function(){
-// socket.emit('foo', 'hello');//发送一个名为foo的事件，并且传递一个字符串数据‘hello’
-// }
+var socket=io.connect(),//与服务器进行连接
+button=document.getElementById('sendBtn'),
+textArea=document.getElementById('messageInput');;
+button.onclick=function(){
+socket.emit('chat message', textArea.value);//发送一个名为foo的事件，并且传递一个字符串数据‘hello’
+textArea.value = "";
+return false;
+}
 window.onload = function() {
     var webchat = new WebChat();
     webchat.init();
@@ -18,6 +21,7 @@ var WebChat = function() {
 //向原型添加业务方法
 WebChat.prototype = {
     init: function(){
+        var that = this;
         this.socket = io.connect();
         this.socket.on('connect',function() {
             document.getElementById('info').textContent = 'get yourself a nickname';
@@ -47,9 +51,15 @@ WebChat.prototype = {
             document.getElementById('messageInput').focus();//让消息输入框获得焦点
         })
         this.socket.on('system', function(nickname,userCount, type){
-            console.log('123');
             var msg = nickname + (type == 'login' ? ' joined' : ' left');
             var p = document.createElement('p');
+            p.textContent = msg;
+            document.getElementById('chats').appendChild(p);
+        })
+
+        this.socket.on('chat message', function(msg){
+            var p = document.createElement('p');
+            console.log(that.socket);
             p.textContent = msg;
             document.getElementById('chats').appendChild(p);
         })
